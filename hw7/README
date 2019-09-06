@@ -1,0 +1,43 @@
+
+Name: Xuejian Ye
+
+Email: xye6@ur.rochester.edu
+
+Course: CSC446
+
+Homework: GMM_EM
+
+************ Files ********************************
+Introduce all files in DIR:
+
+EM_hw7.png(there are four photos: 1.training data with separate covariance;2.development data with separate covariance;3.training data with tied covariance;4.development data with tied covariance)
+
+Xuejian_Ye_hw7.py(the algorithm of GMM of EM)
+
+README
+
+Points.dat
+
+
+************ Algorithm *****************************
+Introducing your algorithm for implementation
+
+This algorithm about GMM of EM. 
+First, we need initializing cluster center(mid), covariance(sigma) and cluster proportion(pi). 
+Then using GMM to compute the responsibilities of each points for each cluster and Renew miu, sigma, pi with the responsibilities, which new parameters will be used for the likelihood of all data points.
+After N iterations, the log likelihood will converge to the best level and we get the cluster result.
+
+
+************ result ***************************
+
+There are two types of covariance: separate covariance and tied covariance.
+Both likelihood for training data or development data could converge to the best level. But compare to the tied covariance. Separate covariances part has higher likelihood.
+
+
+************ Your interpretation ********************(Attention: important!)
+
+1. For the same dataset, the difference between the likelihood of tied covariance and the likelihood of separate covariance.
+
+2. when the number of iterations reach a certain level, the larger the number will bring little change of the trend for the training data, but might bring some overfitting for development data.
+
+3.For each cluster, separate covariance have higher likelihood, but the efficiency will decrease with the larger of the number of clusters.

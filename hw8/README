@@ -1,0 +1,47 @@
+
+Name: Xuejian Ye
+
+Email: xye6@ur.rochester.edu
+
+Course: CSC446
+
+Homework: HMM_EM
+
+************ Files ********************************
+Introduce all files in DIR:
+
+EM_hw7.png(there are four photos: 1.training data with separate covariance;2.development data with separate covariance;3.training data with tied covariance;4.development data with tied covariance)
+
+Xuejian_Ye_hw8.py(the algorithm of GMM of EM)
+
+README
+
+Points.dat
+
+
+************ Algorithm *****************************
+Introducing your algorithm for implementation
+
+This algorithm about HMM_EM
+
+First, we need initializing cluster center(mid), covariance(sigma) and cluster proportion of each points(pi) and transition matrix(A). Then using HMM method get the values of alpha and beta and define a function which could renew the transition matrix continually.
+
+As for the HMM function, we have two steps:
+E_STEP: (alpha * beta)/sum(alpha[N-1,:]), we can use alpha and beta get the values of gamma, which could be used in M_step. Alpha is a joint distribution of current state and previous state of data. Beta is conditional probability of all the following data given current state.
+
+M_STEP: we can renew the values of miu, sigma, pi and transition matrix by the values of gamma. Then using the renewed data to get the new alpha and new beta.
+Finally, using log_likelihood.append(np.log(sum((alpha[N-1,])))), we could receive lots of log likelihood which could help us analyze the performance of this model.
+
+
+************ result ***************************
+
+Does the HMM model the data better than the original non-sequence model? What is the best number of states?
+
+YES, HMM model the data better than original no-sequence model. The number of states seems the larger,the better.
+
+
+************ Your interpretation ********************(Attention: important!)
+
+1. when the number of iterations reach a certain level, the larger the number will bring little change of the trend for the training data, but might bring some overfitting for development data.
+
+

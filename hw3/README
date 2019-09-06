@@ -1,0 +1,55 @@
+
+Name: Xuejian Ye
+
+Email: xye6@ur.rochester.edu
+
+Course: CSC446
+
+Homework:
+
+************ Files ********************************
+Introduce all files in DIR:
+
+Accuracy_photo 2.png
+pnp_hw3.py (using for plotting)
+Xuejian_Ye_hw3.py 
+
+************ Algorithm *****************************
+Introducing your algorithm for implementation
+
+Algorithm part:
+
+    for N in range(1,epochs+1):
+        for i, x in enumerate(X):
+            if (Y[i] * (np.dot(weight.T, X[i]) + b)) < 1:
+                weight = weight - lr* ((1/len(X))*weight-C*(X[i]*Y[i]))
+                b = b + lr*(C*Y[i])
+            else:
+                weight = weight-lr*(1/len(X))*weight
+
+
+I define several functions to complete this homework.
+The most important function is result(n,C)
+
+n means epochs,
+I can get the accuracy of training data, testing data, dev data with different epochs and C
+
+Then I define a function( hyperparameter_C(n,m,k) )
+
+parameter C is selected from [n,m], and k is the number of points C. The n, m, k could be changed by users and get the plot accordingly.
+
+************ Instructions ***************************
+
+Instructions for running the code
+
+For example:./Xuejian_Ye_hw3.py --epochs 1 --capacity 0.868
+
+************ Results ********************************
+
+When capacity=0.0695, my code have the best accuracy.
+there are some significant drops of performance with the change of capacity, especially when capacity is very big.
+
+
+************ Your interpretation ********************(Attention: important!)
+
+from the above results, capacity is very important that capacity from 0.0023345 to 0.88587 yields the best and stable result, capacity larger than 0.9 yield slow decrease of the performance and  capacity larger than 4281 yields a significant drop of the performance",however, there are some drops of performance with the change of capacity.

@@ -1,0 +1,11 @@
+It is a script for algorithm perceptron.
+
+however, I do not use the dev data.
+
+the iterations could be changed through the number we input
+
+Example:
+Ye_perceptron.py --iterations 1
+
+Then we can get the accuracy and weight.
+

@@ -1,0 +1,111 @@
+Your submission should include
+
+- a Python file named lastname_firstname_hw3.py (replace lastname/firstname with your last name/first name)
+- a README file
+- plot.png (see below)
+- plot.py (see below)
+
+The python program should be executable on the cycle machine, meaning it can be
+run from the command on the cycle machine like this:
+
+./lastname_firstname_hw3.py [arguments]
+
+If you do not know how to achieve this, please refer to
+https://en.wikipedia.org/wiki/Shebang_(Unix).
+
+IMPORTANT: Your submission should NOT include a copy of the data. The data is in
+/u/cs246/data/adult; you should look in that path within your program.
+
+* Important note
+
+  You should write your own code. The scripts will be run under sophisticated
+  plagiarism detection software, so taking another student's code and changing
+  function names, moving code around won't work.
+
+* Initial point
+
+  The initial point for your training should start from all 0.
+
+* Formulation
+
+  Your optimization problem for the adult dataset should match (13) on pp. 20 of
+  the lecture note.
+
+* Sampling
+
+  The rows of the adult dataset should be sampled sequentially from the
+  beginning to the end.
+
+* Learning rate
+
+  The learning rate should be 0.1 across your training process.
+
+* CLI options
+
+  ./lastname_firstname_hw3.py --epochs k --capacity c
+
+  should output the following result under above rules with k passes on the data
+  and capacity c in the following format:
+
+  EPOCHS: [k]
+  CAPACITY: [c]
+  TRAINING_ACCURACY: [a float range from 0 to 1]
+  TEST_ACCURACY: [a float range from 0 to 1]
+  DEV_ACCURACY: [a float range from 0 to 1]
+  FINAL_SVM: [a vector, where the first position is the bias]
+
+  Sample output:
+
+  ./lastname_firstname_hw3.py --epochs 1 --capacity 0.868
+
+  EPOCHS: 1
+  CAPACITY: 0.868
+  TRAINING_ACCURACY: 0.8301242236024845
+  TEST_ACCURACY: 0.8331166528779104
+  DEV_ACCURACY: 0.835
+  FINAL_SVM: [-0.7812000000000001, -1.6960076671082582, -0.5695615645540445, 0.41616553242108817, 0.8192272655140415, 0.3034004751266791, 0.3301352834193621, -0.4891540378782317, 0.7477178616111657, 1.0596163871394775, 0.18108259356199874, -0.32853757180323007, -0.17069570037834303, 0.0, -1.3582263294969288, 0.6121261692124593, 0.09932266324429324, -0.34372490278325085, 0.26372644122292577, -0.4851307502489619, 0.09729715626240017, -0.0032116916409831216, -0.054923034172903965, 0.45882904813454406, -0.34090346077243744, 0.16487373622821838, -0.0581952020138591, -0.5861420850222867, 0.3502336485266889, 0.08769628825058226, -0.16087534183590027, -0.330251780439074, 0.7825484545167511, -0.401685655299588, -0.2469352890736937, -1.4370633967987023, -0.054923034172903965, 0.09729715626240017, -0.17602972454422006, 0.8439430406529191, 1.1810277624854402, -0.2987483297775119, -1.0617247281753805, -0.49748126473480025, 0.1000369517050686, -0.32338023082154826, 0.17349388071824728, 0.62096794813159, 0.17289653839294564, -0.7129736085889917, 0.5747645678398106, 1.6476219213342531, 0.03136974362459006, -0.3001168511387371, -0.225518658981901, 0.24263788173764245, -1.2172329061654152, -0.41617148603568, -0.24866102232098483, 1.1605807478430943, 0.0, 1.1872547412791163, -0.39091351961936344, -0.09039684359916761, -0.4943295715768516, -0.6432755605297202, -0.29511520455450135, -0.1869347711213726, 0.685388716043378, -0.5522856163640784, -0.40292182884208455, -0.27002245831633953, -0.7226708840587059, -0.004105074541792317, -1.3705643116016122, 0.6437883530011024, -1.0472903662716726, 0.3205144076711601, -1.2033403972098615, 0.016264527195696175, -0.33798566707666694, 0.22860201213972778, 0.5696835663506135, 0.8437296060038145, 0.1748838847112561, 0.17706810532512496, -0.4097913403944644, 0.6358985064656282, -0.08144116210514132, 0.0, -0.8124266477844138, 0.15375128754016876, -0.0837010857641048, -0.16231951356802057, -0.24170332458964178, 0.02040354279243424, -0.08261682284254154, 0.0, 0.4966075470180439, 0.3202467302642829, 0.1680992518366821, 0.06699082722589958, -0.23892106252838666, -0.40990309196378627, -0.0796471565583393, 0.16113697676754915, -0.07967142417048723, -0.3311083807441841, 0.0, 0.09441499014456892, -0.0026770835769744043, -0.005188388526790924, -0.23995464713864914, -0.07925361839269232, 0.0016006896541354886, 0.0015551141177091985, 0.08674610352890852, 0.0016149048865964739, 0.2443805285306854, -0.4037153264706469, -0.08446991954107225, 0.0006716561099400955, 0.08093022489937347, 0.0]
+
+* How to experiment with hyperparameter C
+
+  A plot with different C as x-axis and the accuracy on test and dev dataset as
+  y-axis should be provided. C should go from 10^-3 to 10^4. The x-axis should
+  be in log scale and the you should have at least 20 points in the plot.
+
+  For the plot, SGD should run for 5 epochs on the dataset for every C.
+
+  The output plot figure in png format should be submitted as plot.png. The
+  script for producing the plot should be submitted as plot.py.
+
+* Note
+
+  Note that the indexing of the adult dataset begins from 1, while python index begins from 0.
+
+* README file format
+
+Name:
+Email:
+Course: CSC446
+Homework:
+The homework description, which you can copy from the course page
+
+************ Files *********
+Introduce all files in DIR
+
+************ Algorithm *****
+Introducing your algorithm for implementation
+
+
+************ Instructions ***
+
+Instructions for running the code
+
+************ Results *******
+
+Discuss performances of your code along with the hyper-parameters,
+
+************ Your interpretation **** (Attention: important!)
+
+Your understanding of the results, for instance, "from the above results, learning rate is very important that a learning rate from XX to XX yields the best result, and that a learning rate larger than XX yields a significant drop of the performance"
+
+************ References ************
+Anything (web, book, person you discuss with) you refer during coding the homework.
