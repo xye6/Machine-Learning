@@ -1,14 +1,13 @@
 
 # coding: utf-8
+import numpy as np
+import sys
 
-# In[33]:
 
 file_object = open("/u/cs246/data/adult/a7a.train")
 lines = file_object.readlines()
 data_list = [word.strip() for word in lines]
 
-
-# In[34]:
 
 new_data_list=[]
 for i in data_list:
@@ -35,9 +34,6 @@ for i in range(len(new_data_list)):
     x.append(1)   
     new_data_list_combine.append(x)
 
-
-# In[35]:
-
 import numpy as np
 X= np.array(new_data_list_combine)
 Y= np.array(labels)
@@ -59,17 +55,11 @@ def perceptron_train(X,Y,n):
        
     return weight
 
-
-# In[36]:
-
 file_object = open("/u/cs246/data/adult/a7a.test")
 lines = file_object.readlines()
 data_list = [word.strip() for word in lines]
 
 
-# In[37]:
-
-import numpy as np
 X1= np.array(new_data_list_combine)
 Y1= np.array(labels)
 weight = perceptron_train(X,Y,1)
@@ -93,9 +83,6 @@ def perceptron_test(X,Y,w):
     return accurate_rate
 
 
-# In[38]:
-
-import sys
 def main():
     if '--iterations' in sys.argv:
         ep = int(sys.argv[sys.argv.index('--iterations')+1])
@@ -104,19 +91,5 @@ def main():
 if __name__ == "__main__":
     main()
         
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
 
 
